@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load urlify %}
 
 {% block head_title %}
 {{ instance.title }} | {{ block.super }}
@@ -12,7 +13,18 @@
 {% endif %}
 <h1>{{ title }} <small>{{ instance.timestamp }}<br/></small></h1>
 
+<a href="https://twitter.com/home?status={{ instance.content|truncatechars:20|urlify }}%80{{ request.build_absolute_uri }}/">
+Twitter
+</a>
+
+<a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'>Google</a>
+
+
+
 {{ instance.content|linebreaks }}<br/>
+
+
+
 </div>
 
 {% endblock content %}
