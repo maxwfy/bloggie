@@ -1,0 +1,25 @@
+body {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.main-wrapper {
+  font-size: 12vmin;
+  text-align:center;
+  color:#000;
+  font-family: Arial, Sans-serif;
+}
+
+#weatherIcon, #temp, #weatherDescription {
+  display: inline-block;
+}
+
+#cb, #fb {
+   font-weight: bold;
+   width: 100%;
+   min-width: 50px;
+   max-width: 40px;
+}

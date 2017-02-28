@@ -12,7 +12,9 @@
 	<img src="{{ instance.image.url }}" class="img-responsive" />
 {% endif %}
 <h1>{{ title }} <small>{{ instance.timestamp }}<br/></small></h1>
-
+{% if instance.user.get_full_name %}
+<p>Author: {{ instance.user.get_full_name }}</p>
+{% endif %}
 <a href="https://twitter.com/home?status={{ instance.content|truncatechars:20|urlify }}%80{{ request.build_absolute_uri }}/">
 Twitter
 </a>
