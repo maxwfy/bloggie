@@ -11,21 +11,33 @@
 {% if instance.image %}
 	<img src="{{ instance.image.url }}" class="img-responsive" />
 {% endif %}
-<h1>{{ title }} <small>{{ instance.timestamp }}<br/></small></h1>
+<h1>{{ title }} <small>{% if instance.draft %}<span style="color: red;">Draft</span>{% endif %}{{ instance.publish }}<br/></small></h1>
 {% if instance.user.get_full_name %}
 <p>Author: {{ instance.user.get_full_name }}</p>
 {% endif %}
-<a href="https://twitter.com/home?status={{ instance.content|truncatechars:20|urlify }}%80{{ request.build_absolute_uri }}/">
-Twitter
-</a>
-
-<a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'>Google</a>
 
 
+<!-- FACEBOOK LIKE PLUGIN STARTS HERE -->
+<p>
+<div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+</p>
+<!-- FACEBOOK LIKE PLUGIN ENDS HERE -->
 
-{{ instance.content|linebreaks }}<br/>
+<hr>
+<div class="row">
+<div class="col-sm-12">
 
+	{{ instance.content|linebreaks }}
 
+<hr>
+<br>
+<!-- FACEBOOK COMMENTS PLUGIN STARTS HERE -->
+
+<div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5">
+</div>
+</div>
+</div>
+<!-- FACEBOOK COMMENTS PLUGIN ENDS HERE -->
 
 </div>
 
